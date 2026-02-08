@@ -1,0 +1,53 @@
+# איל צילום — Generative Engine Optimization Map
+
+> A מוצרי ילדים ומתנות מותאמות אישית business.
+
+---
+
+## Pages
+
+### Home
+https://-de773e41.zappy5.app
+
+### Categories
+https://-de773e41.zappy5.app/categories
+
+### Process
+https://-de773e41.zappy5.app/process
+
+### Contact
+https://-de773e41.zappy5.app/contact
+
+## Legal & Policy
+
+### Privacy Policy
+https://-de773e41.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://-de773e41.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://-de773e41.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About איל צילום
+איל צילום is a business in the מוצרי ילדים ומתנות מותאמות אישית industry.
+
+## Target Audience
+הורים, גני ילדים, מורות
+
+## Industry
+מוצרי ילדים ומתנות מותאמות אישית
+
+---
+
+# Additional Resources
+
+- **Sitemap**: https://-de773e41.zappy5.app/sitemap.xml
+- **Robots.txt**: https://-de773e41.zappy5.app/robots.txt

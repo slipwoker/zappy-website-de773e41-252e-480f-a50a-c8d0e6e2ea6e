@@ -1,0 +1,575 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>איל צילום | מוצרים מותאמים אישית לגני ילדים</title>
+  <meta name="description" content="Home - איל צילום provides professional מוצרי ילדים ומתנות מותאמות אישית services. Specializing in מוצרים מותאמים אישית לגני ילדים.">
+  <meta name="keywords" content="מוצרים מותאמים אישית לגני ילדים, הדפסה על מוצרים לילדים, מוצרים עם תמונה אישית לגן, מתנות מותאמות אישית לילדים">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="איל צילום | מוצרים מותאמים אישית לגני ילדים">
+  <meta property="og:description" content="Home - איל צילום provides professional מוצרי ילדים ומתנות מותאמות אישית services. Specializing in מוצרים מותאמים אישית לגני ילדים.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="איל צילום | מוצרים מותאמים אישית לגני ילדים">
+  <meta name="twitter:description" content="Home - איל צילום provides professional מוצרי ילדים ומתנות מותאמות אישית services. Specializing in מוצרים מותאמים אישית לגני ילדים.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+<!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: 'de773e41-252e-480f-a50a-c8d0e6e2ea6e',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: #333 !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+</head>
+<body>
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+  
+  <button class="phone-header-btn" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+  
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/logo.webp" alt="איל צילום" class="logo" />
+      </a>
+    </div>
+    
+    <ul class="nav-menu" id="navMenu"><li><a href="/categories">קטגוריות</a></li><li><a href="/process">התהליך</a></li></ul>
+    
+    <div class="nav-cta-container">
+      <a href="/contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+  
+  <main>
+    <section class="home-hero-section" data-layout-spec="Home-hero" data-hero-type="fullscreen-scrim">
+  <div class="home-hero-section__background">
+    <img data-placeholder="home-hero-bg" data-context="Bright, tidy scene of personalized kids items (labeled water bottles, lunch boxes, backpacks) arranged neatly on a light wooden table near a sunny window. Soft natural daylight, clean white walls, organized and premium feel. Items show clear Hebrew labels/names. Professional product photography style for a kids gear business." width="1920" height="1080" src="/assets/site-home-hero-bg.webp" alt="מוצרי ילדים מותאמים אישית מסודרים על שולחן" class="home-hero-section__bg-image">
+    <div class="home-hero-section__scrim" aria-hidden="true"></div>
+  </div>
+  
+  <div class="home-hero-section__content-wrapper">
+    <div class="home-hero-section__overlay-card">
+      <h1 class="home-hero-section__title">מוצרים מותאמים אישית לגני ילדים – מסודרים ומשמחים</h1>
+      <h3 class="home-hero-section__subtitle">הזמנה מהירה, התאמה אישית קריאה ואיכותית לגן, לגננת ולמתנות – עיצוב פרימיום שנשאר לאורך זמן</h3>
+      <div class="home-hero-section__cta-group">
+        <a href="#contact" class="home-hero-section__btn home-hero-section__btn--primary">צור קשר להתאמה אישית</a>
+        <a href="#categories" class="home-hero-section__btn home-hero-section__btn--secondary">צפייה בקטגוריות</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-collections-section" data-layout-spec="Home-collections">
+  <div class="home-collections-container">
+    <div class="home-collections-grid">
+      <!-- Card 1: Name Labels & Stickers -->
+      <article class="home-collections-card card-default">
+        <div class="home-collections-card-image">
+          <img data-placeholder="home-collections-image-1" data-context="High-quality photograph of personalized name labels and sticker sets for children - showing colorful, durable waterproof stickers with Hebrew names, cute icons (stars, animals, hearts), arranged neatly on a clean white surface with soft natural lighting. Labels should look professional, daycare-friendly, with clear readable Hebrew text. Include variety of sizes and shapes. Bright, clean, organized composition suitable for parents and teachers." width="600" height="400" src="/assets/site-home-collections-image-1.webp" alt="מדבקות שם ומארזי מדבקות מותאמות אישית לילדים">
+        </div>
+        <div class="home-collections-card-content">
+          <h3>מדבקות שם ומארזי מדבקות</h3>
+          <p>מדבקות עמידות וקריאות במיוחד לגני ילדים - עמידות במים, בשמש ובשטיפה. מושלמות לסימון בקבוקים, קופסאות אוכל וציוד אישי. זמינות במגוון עיצובים צבעוניים ומתאימות לגיל הרך.</p>
+          <a href="#contact" class="btn-primary">צרו קשר להתאמה אישית</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Personalized Bags & Backpacks -->
+      <article class="home-collections-card card-default">
+        <div class="home-collections-card-image">
+          <img data-placeholder="home-collections-image-2" data-context="Professional product photo of personalized children's bags and backpacks - showing high-quality canvas or fabric bags with custom Hebrew names printed/embroidered on them. Classic, timeless design in neutral colors (beige, navy, gray) with clear Hebrew text. Include both small drawstring bags and medium backpacks. Clean white background, soft studio lighting, arranged to show personalization clearly. Suitable for kindergarten and preschool use." width="600" height="400" src="/assets/site-home-collections-image-2.webp" alt="תיקים ותרמילים מותאמים אישית לילדים">
+        </div>
+        <div class="home-collections-card-content">
+          <h3>תיקים ותרמילים מותאמים אישית</h3>
+          <p>תיקים איכוtiים במראה קלאסי עם הדפסה או רקמה של שם הילד. מושלמים לזיהוי מהיר בגן ובפעילויות. עשויים מחומרים עמידים ונוחים לשימוש יומיומי, זמינים במגוון גדלים וצבעים נייטרליים.</p>
+          <a href="#contact" class="btn-primary">צרו קשר להתאמה אישית</a>
+        </div>
+      </article>
+
+      <!-- Card 3: Teacher & Caregiver Gifts -->
+      <article class="home-collections-card card-default">
+        <div class="home-collections-card-image">
+          <img data-placeholder="home-collections-image-3" data-context="Elegant photograph of personalized teacher appreciation gifts - showing thoughtful items like custom mugs, tote bags, or framed prints with Hebrew thank-you messages and teacher names. Warm, grateful atmosphere with soft lighting. Items should look ready-to-give, professionally wrapped or beautifully presented. Include flowers or gift wrapping elements. Clean, organized composition that conveys appreciation and quality. Suitable for end-of-year or holiday teacher gifts." width="600" height="400" src="/assets/site-home-collections-image-3.webp" alt="מתנות מותאמות אישית למורות וצוות חינוכי">
+        </div>
+        <div class="home-collections-card-content">
+          <h3>מתנות למורות ולצוות חינוכי</h3>
+          <p>מתנות מתחשבות ומותאמות אישית שמתאימות במיוחד למורות, גננות וצוות חינוכי. כל מתנה מותאמת בקפידה עם שם ומסר אישי, ומגיעה מוכנה למסירה. אידיאלי לסוף שנה, חגים או הוקרה מיוחדת.</p>
+          <a href="#contact" class="btn-primary">צרו קשר להתאמה אישית</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Transition Divider (soft sand-to-white gradient band) -->
+  <div class="home-collections-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="home-collections-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#F2EEE7;stop-opacity:1"></stop>
+          <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M0,40 L0,0 L1200,0 L1200,40 Z" fill="url(#home-collections-gradient)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-how-it-works-section" data-layout-spec="Home-how-it-works">
+  <div class="home-how-it-works-container">
+    <div class="home-how-it-works-header">
+      <h2>מרעיון למוצר מוכן לשימוש</h2>
+      <p>תהליך פשוט וידידותי להורים שנשאר מהיר וצפוי. מהשיחה הראשונה ועד למסירה מוכנה לגן או למתנה.</p>
+    </div>
+
+    <div class="home-how-it-works-timeline">
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>שיתוף הפרטים</h3>
+        <p>שתפו אותנו בשם הילד וסוג המוצר המבוקש - תיק, בקבוק, או מארז גן.</p>
+      </div>
+
+      <div class="home-how-it-works-connector"></div>
+
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>אישור הסגנון</h3>
+        <p>נציג לכם תצוגה מקדימה ונוודא את הכתיב והעיצוב לפני הייצור.</p>
+      </div>
+
+      <div class="home-how-it-works-connector"></div>
+
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>ייצור ובקרת איכות</h3>
+        <p>המוצר עובר הדפסה מדויקת ובדיקת איכות קפדנית לפני האריזה.</p>
+      </div>
+
+      <div class="home-how-it-works-connector"></div>
+
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-icon-wrapper">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>מוכן למסירה</h3>
+        <p>המוצר מארוז ומוכן למסירה לגן או למתנה מושלמת לכל אירוע.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-how-it-works-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 L0,25 Q100,30 200,22 T400,28 Q500,20 600,26 T800,22 Q900,28 1000,24 T1200,26 L1200,60 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-showcase-section" data-layout-spec="Home-showcase">
+  <div class="showcase-container">
+    <div class="showcase-grid">
+      <div class="showcase-featured">
+        <img data-placeholder="home-showcase-featured" data-context="Large hero product photo for children's personalized gifts business - bright natural lighting, showing a personalized children's backpack or lunchbox with custom photo print, clean white or cream background, professional product photography style, vibrant colors, focus on print quality and durability" width="800" height="1000" src="/assets/site-home-showcase-featured.webp" alt="מוצר מותאם אישית מרכזי - תיק או קופסת אוכל עם הדפסה אישית">
+      </div>
+      <div class="showcase-small showcase-item-1">
+        <img data-placeholder="home-showcase-item-1" data-context="Product photo of personalized children's water bottle with custom name or photo, bright natural background, clean professional photography, showing print quality and vibrant colors" width="400" height="300" src="/assets/site-home-showcase-item-1.webp" alt="בקבוק שתייה מותאם אישית לילדים">
+      </div>
+      <div class="showcase-small showcase-item-2">
+        <img data-placeholder="home-showcase-item-2" data-context="Personalized children's pencil case or school supplies with custom photo print, bright clean background, professional product shot, focus on durability and print clarity" width="400" height="300" src="/assets/site-home-showcase-item-2.webp" alt="קלמר מותאם אישית עם הדפסה">
+      </div>
+      <div class="showcase-small showcase-item-3">
+        <img data-placeholder="home-showcase-item-3" data-context="Custom printed children's towel or blanket with personalized photo, bright natural lighting, clean background, showing soft texture and vibrant print quality" width="400" height="300" src="/assets/site-home-showcase-item-3.webp" alt="מגבת או שמיכה מותאמת אישית">
+      </div>
+      <div class="showcase-small showcase-item-4">
+        <img data-placeholder="home-showcase-item-4" data-context="Personalized children's plate or mealtime set with custom name/photo, clean white background, bright professional photography, showing durability and safe materials" width="400" height="300" src="/assets/site-home-showcase-item-4.webp" alt="צלחת או סט אוכל מותאם אישית">
+      </div>
+    </div>
+    <div class="showcase-content">
+      <h2>הדפסה נקייה וקריאה שנראית כמו מתנה</h2>
+      <p>תמונות בהירות, עיצוב מינימלי—דגש על בהירות, עמידות ומראה מסודר שמתאים בדיוק להורים ולגנים.</p>
+      <a href="#contact" class="btn-primary">צור קשר להתאמה אישית</a>
+    </div>
+  </div>
+  <div class="showcase-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 L0,35 Q100,28 200,35 T400,30 Q500,35 600,28 T800,35 Q900,30 1000,35 T1200,30 L1200,60 Z" fill="var(--bg-dark)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-cta-section" data-layout-spec="Home-cta">
+  <div class="home-cta-section__container">
+    <div class="home-cta-section__content">
+      <h2 class="home-cta-section__title">מוכנים להתאים אישית משהו לגן או למתנה?</h2>
+      <p class="home-cta-section__description">ספרו לנו את השם, סוג המוצר והסגנון המועדף עליכם—ואנחנו נדריך אתכם לתוצאה נקייה וקלאסית.</p>
+      <a href="#contact" class="home-cta-section__btn btn-primary">צרו קשר</a>
+    </div>
+    <div class="home-cta-section__reassurance">
+      <div class="home-cta-section__reassurance-item">
+        <svg data-element-type="icon" data-icon-type="svg" class="home-cta-section__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"></path>
+        </svg>
+        <p class="home-cta-section__reassurance-text">זמן אספקה מהיר</p>
+      </div>
+      <div class="home-cta-section__reassurance-item">
+        <svg data-element-type="icon" data-icon-type="svg" class="home-cta-section__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" fill="currentColor"></path>
+        </svg>
+        <p class="home-cta-section__reassurance-text">משלוח מאובטח</p>
+      </div>
+      <div class="home-cta-section__reassurance-item">
+        <svg data-element-type="icon" data-icon-type="svg" class="home-cta-section__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"></path>
+        </svg>
+        <p class="home-cta-section__reassurance-text">הגהה לפני הדפסה</p>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer"><div class="footer-container"><div class="footer-grid"><div class="footer-section footer-about"><img src="/assets/logo.webp" alt="איל צילום" class="logo" /><p class="footer-description">מוצרי ילדים ומתנות מותאמות אישית - יוצרים רגעים מיוחדים עם מוצרים ייחודיים ואיכותיים</p><div class="social-links"><a href="[facebook_handle]" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="[instagram_handle]" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="[whatsapp_handle]" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer-section footer-links"><h3 class="footer-title">קישורים מהירים</h3><ul class="footer-menu"><li><a href="/categories">קטגוריות</a></li><li><a href="/process">תהליך ההזמנה</a></li><li><a href="/contact">צור קשר</a></li></ul></div><div class="footer-section footer-contact"><h3 class="footer-title">יצירת קשר</h3><ul class="contact-list"><li><i class="fas fa-envelope"></i><a href="mailto:[business_email]">[business_email]</a></li><li><i class="fas fa-phone"></i><a href="tel:[business_phone]">[business_phone]</a></li><li><a href="/"><i class="fas fa-map-marker-alt"></i><span>[business_address]</span></a></li></ul></div></div><div class="footer-bottom"><div class="footer-bottom-content"><div class="legal-links"><a href="/privacy">מדיניות פרטיות</a><span class="separator">|</span><a href="/terms">תנאים והגבלות</a><span class="separator">|</span><a href="/accessibility">הצהרת נגישות</a></div><p class="copyright">© 2026 איל צילום. כל הזכויות שמורות.</p><a href="https://zappy5.com" target="_blank" class="zappy-attribution">Generated by Zappy</a></div></div></div></footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <script src="/script.js"></script>
+
+    <div data-integration="accessibility:toolbar"></div>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+</body></html>
